@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show Painting Informations</title>
+    <style>
+      table,
+      tr,
+      td,
+      th {
+        border: 1px solid black;
+        text-align: center;
+        padding: 7px;
+        font-size: 20px;
+      }
+      table {
+        margin: auto;
+        display: table;
+      }
+      #deleteBtn {
+        margin: auto;
+        display: table;
+        margin-top: 10px;
+        width: 250px;
+        height: 30px;
+        font-size: 22px;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <% if (painting !== null) { %>
+      <tr>
+        <th>Festmény Címe</th>
+        <th>Festmény Kiállítási Éve</th>
+        <th>Festmény jelenleg ki van-e állítva</th>
+      </tr>
+      <tr>
+        <td><%= painting.title %></td>
+        <td><%= painting.year %></td>
+        <td>
+          <% if (painting.on_display == 1) { %>
+              Igen
+            <% } else { %>
+              Nem
+              <% } %>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+    
+    <form method="post">
+      <input type="submit" value="delete" id="deleteBtn">
+    </form>
+ 
+  </body>
+</html>
